@@ -17,7 +17,7 @@ for words in fileLines:
        #Execute if line is indeed an Ip address
        if ip:
          print("Added rule to block Ip:",words)
-         rule = "netsh advfirewall firewall add rule name='BadBotIP' Dir=Out Action=Block RemoteIP="+ip
+         rule = "netsh advfirewall firewall add rule name='BadBotIP' Dir=Out Action=Block RemoteIP="+words
          subprocess.run(["Powershell", "-Command",rule])
          #Line does not start with # but is not a valid Ip adress
        else: print("Line does not start with '#' but is NOT an IP address")
